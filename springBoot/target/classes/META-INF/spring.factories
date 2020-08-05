@@ -1,0 +1,2 @@
+org.springframework.context.ApplicationListener=com.wang.listener.CustomListener
+org.springgramework.context
