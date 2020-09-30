@@ -24,6 +24,9 @@
         <module>kafkaProvider</module>
         <module>kafkaConsumer</module>
         <module>offer</module>
+        <module>kafkaDemo</module>
+        <module>jvmDemo</module>
+        <module>javaDemo</module>
     </modules>
 
     <name>code</name>

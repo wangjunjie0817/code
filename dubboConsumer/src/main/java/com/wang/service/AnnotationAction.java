@@ -14,7 +14,7 @@ import org.springframework.stereotype.Component;
 @Component("annotationAction")
 public class AnnotationAction {
 
-    @Reference(cluster = "random")
+    @Reference(cluster = "random", validation = "true")
     AnnotationService annotationService;
 
     public String doSayHello(){

@@ -17,11 +17,65 @@ public class Demo {
 
     static int count = 0;
 
+    static final int maxValue = 6;
+
     public static void main(String[] args) {
-        Integer a = Integer.valueOf(127);
-        Integer b = Integer.valueOf(127);
-        System.out.println(a == b);
+        int[] a = {4};
+        int[] b = {5};
+        System.out.println(canCompleteCircuit(a, b));
     }
+
+    public static int canCompleteCircuit (int[] gas, int[] cost) {
+        // write code here
+        int startIndex = 0;
+        int residue = 0;
+        int result = -1;
+        boolean flag = true;
+        while(startIndex < gas.length){
+            for(int i = startIndex; i < gas.length; i++){
+                residue += gas[i];
+                residue -= cost[i];
+                if(residue < 0){
+                    flag = false;
+                }
+            }
+            for(int i = 0; i < startIndex; i++){
+                residue += gas[i];
+                residue -= cost[i];
+                if(residue < 0){
+                    flag = false;
+                }
+            }
+            if (flag){
+                result = startIndex;
+                return result;
+            } else {
+                flag = true;
+                startIndex++;
+            }
+
+        }
+        return result;
+    }
+
+    public static void dice(int n, int[] resultArray){
+        for (int i = 1; i <= maxValue; ++i){
+            dice(n, n, i, resultArray);
+        }
+    }
+
+    public static void dice(int n, int current, int sum, int[] resultArray){
+        if (current == 1){
+            resultArray[sum - n + 1]++;
+        }
+        else {
+            for (int i = 1; i <= maxValue; ++i){
+                dice(n, n - 1, sum + i, resultArray);
+            }
+        }
+    }
+
+
 
     /**
      * 归并排序
